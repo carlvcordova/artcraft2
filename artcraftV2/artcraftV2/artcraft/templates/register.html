@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+
+<div class="container">
+    <div class="title">SIGN UP</div>
+    <div class="tagline">It's quick and easy.</div>
+    <div class="content">
+      <form method="POST">
+        {% csrf_token %}
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">First Name</span>
+            <input type="text" name="firstName" placeholder="Enter your first name" required="required">
+          </div>
+          <div class="input-box">
+            <span class="details">Last Name</span>
+            <input type="text" name="lastName" placeholder="Enter your last name" required="required">
+          </div>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" name="username" placeholder="Must be more than 4 characters" required="required">
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="email" name="email" placeholder="Enter your email" required="required">
+          </div>
+          <div class="input-box">
+            <span class="details">Contact Number</span>
+            <input type="text" name="phoneNumber" placeholder="Enter your number" required="required">
+          </div>
+          <div class="input-box">
+            <span class="details">Address</span>
+            <input type="text" name="address" placeholder="Enter your address" required="required">
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" name="password" placeholder="Password must be 8 characters long" required="required">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" name="cpassword" placeholder="Confirm your password" required="required">
+          </div>
+        </div>
+       
+        <!-- {% if messages %}
+        {% for message in messages %} 
+        <div class="error-message">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            {{message}}
+        </div>
+        {% endfor %}
+        {% endif %} -->
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+      </form>
+
+        <div class="signin">
+          Already have an account?
+          <a href="{% url 'artcraft:login' %}">Sign in</a>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

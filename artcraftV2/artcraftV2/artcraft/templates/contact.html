@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+      
+    <div class="container">
+      <div class="section-title">
+        <h2><strong>Contact Us</strong></h2>
+        <p>Feel free to communicate with the team!</p>
+      </div>
+      <div class="form">
+        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Enter name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+            </div>
+            <div class="col-md-6 form-group mt-3 mt-md-0">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" data-rule="email" data-msg="Please enter a valid email">
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+          </div>
+          <div class="form-group mt-3">
+            <textarea class="form-control" name="message" rows="10" placeholder="Create message" required></textarea>
+          </div>
+          
+          <div class="text-center"><button class="btn btn-primary" type="submit">Send Message</button></div>
+        </form>
+      </div>
+
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <footer>
+        <div class="w3-pale-blue w3-center w3-padding-24">Copyrights 2021 | ARTCRAFT</div>
+    </footer>
+    
+
+
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="homepage">
+  <br><br><br><br><br><br><br><br><br>
+  <header class="w3-container w3-xlarge">
+    <p class="header"><strong>WELCOME {{ firstName }} TO ARTCRAFT</strong></p>
+    <h3 style="color: white; text-shadow: 2px 2px black;">Discover the world through artworks!</h3>
+    <a href="{% url 'artcraft:artwork' %}">
+      <i class='bx bxs-send' style="color: white; margin-left: 50%; font-size: 30px;"></i>
+    </a>
+    <br>
+  </header>
+  <br><br><br><br><br><br><br><br><br>
+  <footer>
+    <div class="w3-pale-blue w3-center w3-padding-24">Copyrights 2021 | ARTCRAFT</div>
+  </footer>
+</div>
+
+{% endblock content %}

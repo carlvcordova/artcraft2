@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    
+<style>
+  img {
+    vertical-align: middle;
+  }
+  
+  /* Position the image container (needed to position the left and right arrows) */
+  .containnner {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: white;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* Container for image text */
+  .caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Six columns side by side */
+  .column {
+    float: left;
+    width: 16.66%;
+  }
+  
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
+  </style>
+  <body>
+  <!-- Top header -->
+  <header class="w3-container w3-xlarge">
+  <p class="header"><strong>Hey! Welcome to our Art Gallery</strong></p>
+  </header>
+  
+  <div class="containnner">
+    <div class="mySlides">
+      <img src="/static/images/zero hour.jpg" style="width:100%">
+    </div>
+  
+    <div class="mySlides">
+      <img src="/static/images/zero hour 1.jpg" style="width:100%">
+    </div>
+  
+    <div class="mySlides">
+      <img src="/static/images/zero hour 2.jpg" style="width:100%">
+    </div>
+      
+    <div class="mySlides">
+      <img src="/static/images/zero hour 3.jpg" style="width:100%">
+    </div>
+  
+    <div class="mySlides">
+      <img src="/static/images/zero hour 4.jpg" style="width:100%">
+    </div>
+      
+    <div class="mySlides">
+      <img src="/static/images/zero hour.jpg" style="width:100%">
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+  
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+  
+    <div class="row">
+      <div class="column">
+        <img class="demo cursor" src="/static/images/zero hour.jpg" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="/static/images/zero hour 1.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="/static/images/zero hour 2.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="/static/images/zero hour 3.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="/static/images/zero hour 4.jpg" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+      </div>    
+      <div class="column">
+        <img class="demo cursor" src="/static/images/zero hour.jpg" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+      </div>
+    </div>
+  </div>
+  
+  <script>
+  var slideIndex = 1;
+  showSlides(slideIndex);
+  
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+  
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+  
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demo");
+    var captionText = document.getElementById("caption");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    captionText.innerHTML = dots[slideIndex-1].alt;
+  }
+  </script>
+  
+  <br><br><br><br><br><br><br><br>
+  
+  <!-- Product grid -->
+  <div class="w3-row w3-grayscale">
+    <hr>
+    <div class="w3-col l3 s6">
+      <div class="w3-container">
+        <img src="/static/images/zero hour.jpg" alt="ARTWORK 1"style="width:100%">
+        <p>Artwork 1<br><b class="w3-text-red">$24.99</b></p>
+      </div>
+      <div class="w3-container">
+        <img src="/static/images/zero hour 3.jpg" alt="ARTWORK 2" style="width:100%">
+        <p>Artwork 2<br><b class="w3-text-red">$19.99</b></p>
+      </div>
+    </div>
+
+    <div class="w3-col l3 s6">
+      <div class="w3-container">
+        <div class="w3-display-container">
+            <img src="/static/images/zero hour 1.jpg" alt="ARTWORK 3"style="width:100%">
+        </div>
+        <p>Artwork 3<br><b class="w3-text-red">$19.99</b></p>
+      </div>
+      <div class="w3-container">
+        <img src="/static/images/zero hour 2.jpg" alt="ARTWORK 4" style="width:100%">
+        <p>Artwork 4<br><b class="w3-text-red">$20.50</b></p>
+      </div>
+    </div>
+
+    <div class="w3-col l3 s6">
+      <div class="w3-container">
+        <img src="/static/images/zero hour 3.jpg" alt="ARTWORK 5" style="width:100%">
+        <p>Artwork 5<br><b class="w3-text-red">$20.50</b></p>
+      </div>
+      <div class="w3-container">
+        <div class="w3-display-container">
+            <img src="/static/images/zero hour 4.jpg" alt="ARTWORK 6" style="width:100%">
+          <div class="w3-display-middle w3-display-hover">
+          </div>
+        </div>
+        <p>Artwork 6<br><b class="w3-text-red">$14.99</b></p>
+      </div>
+    </div>
+
+    <div class="w3-col l3 s6">
+      <div class="w3-container">
+        <img src="/static/images/zero hour.jpg" alt="ARTWORK 7" style="width:100%">
+        <p>Artwork 7<br><b class="w3-text-red">$14.99</b></p>
+      </div>
+      <div class="w3-container">
+        <img src="/static/images/zero hour 1.jpg" alt="ARTWORK 8" style="width:100%">
+        <p>Artwork 8<br><b class="w3-text-red">$24.99</b></p>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="w3-pale-blue w3-center w3-padding-24">Copyrights 2021 | ARTCRAFT</div>
+
+  <!-- End page content -->
+</div>
+
+{% endblock content %}
